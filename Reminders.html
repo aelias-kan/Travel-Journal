@@ -17,53 +17,91 @@
           <li><a href="HomePage.html">AI</a></li>
           <li><a href="Schedules.html">Schedules</a></li>
           <li><a href="ToDo.html">To-Do List</a></li>
+          <li>
+            <label>
+              <input type="checkbox" id="adhan-reminder">
+              Adhan Reminder
+            </label>
+            <div class="adhan-timings">
+              <div class="adhan-timing">
+                <label for="fajr-time">Fajr:</label>
+                <input type="text" id="fajr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="dhuhr-time">Dhuhr:</label>
+                <input type="text" id="dhuhr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="asr-time">Asr:</label>
+                <input type="text" id="asr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="maghrib-time">Maghrib:</label>
+                <input type="text" id="maghrib-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="isha-time">Isha:</label>
+                <input type="text" id="isha-time" readonly>
+              </div>
+            </div>
+            </li>
         </ul>
         <div class="copyright">
           <p>&copy; Muhammad Ilyas | <p>milyasstudent@gmail.com</p></p>
         </div>
       </aside>
       <section class="content">
-        <div class="reminders-container">
-          <h2>Manage Your Reminders</h2>
+        <div class="reminders-container">          
           <!-- Reminder management content goes here -->
           <div class="reminder-form">
-            <h3>Create or Update Reminder</h3>
-            <form id="reminderForm">
-              <label for="reminderName">Name:</label>
-              <input type="text" id="reminderName" name="name" required>
-
-              <label for="reminderDate">Date:</label>
-              <input type="date" id="reminderDate" name="date" required>
-
-              <label for="reminderTime">Time:</label>
-              <input type="time" id="reminderTime" name="time" required>
-
-              <div class="reminder-alarm">
+            <h3>Create New Reminders</h3>
+            <form id="reminderForm" style="display: grid;">
+              <div class="form-group fullname">
+                <label for="reminderName">Reminder Name:</label>
+                <input type="text" id="reminderName" name="name" placeholder="Enter your full name" required>
+              </div>
+            
+              <div class="form-group email">
+                <label for="reminderDate">Date:</label>
+                <input type="date" id="reminderDate" name="date" required>
+              </div>
+            
+              <div class="form-group email">
+                <label for="reminderTime">Time:</label>
+                <input type="time" id="reminderTime" name="time" required>
+              </div>
+            
+              <div class="reminder-alarm form-group password">
                 <label for="reminderAlarm">
                   <input type="checkbox" id="reminderAlarm" name="alarm">
-                  Alarm
+                  Turn Alarm on
                 </label>
                 <input type="file" id="alarmMusic" name="alarmMusic" accept="audio/*">
               </div>
-
-              <div class="reminder-notification">
+            
+              <div class="reminder-notification form-group password">
                 <label for="reminderNotification">
                   <input type="checkbox" id="reminderNotification" name="notification">
-                  Notification
+                  Turn Notification on
                 </label>
                 <input type="file" id="notificationFile" name="notificationFile" accept="audio/*">
               </div>
-
-              <button type="submit">Save Reminder</button>
-            </form>
+            
+              <div class="form-group submit-btn">
+                <button type="submit">Save Reminder</button>
+              </div>
+            </form>                    
           </div>
           <div class="reminders-list">
             <h3>Your Reminders</h3>
-            <!-- List of reminders goes here -->
+            <ul id="reminderList"></ul>
           </div>
         </div>
       </section>
     </main>
   </div>
+  <script src="reminder.js"></script>
+  <script src="reminder.js"></script>
+  <script src="loadReminders.js"></script>
 </body>
 </html>
