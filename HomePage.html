@@ -2,28 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="AI-driven schedules and reminders">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="Home.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>AI Schedules</h1>
+      <h1>AI-driven schedules and reminders</h1>
     </header>
     <main>
       <aside class="sidebar">
         <ul>
+          <li><a href="Schedules.html">Schedules</a></li>
+          <li><a href="ToDo.html">To-Do List</a></li>
           <li><a href="Reminders.html">Reminders</a></li>
-          <li><a href="#todo">To-Do List</a></li>
-          <li><a href="#schedule">Schedule</a></li>
           <li>
             <label>
               <input type="checkbox" id="adhan-reminder">
               Adhan Reminder
             </label>
+            <div class="adhan-timings">
+              <div class="adhan-timing">
+                <label for="fajr-time">Fajr:</label>
+                <input type="text" id="fajr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="dhuhr-time">Dhuhr:</label>
+                <input type="text" id="dhuhr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="asr-time">Asr:</label>
+                <input type="text" id="asr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="maghrib-time">Maghrib:</label>
+                <input type="text" id="maghrib-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="isha-time">Isha:</label>
+                <input type="text" id="isha-time" readonly>
+              </div>
+            </div>
+    
           </li>
         </ul>
+
+        <!-- Adhan Timings Box -->
+        
         <div class="copyright">
           <p>&copy; Muhammad Ilyas | milyasstudent@gmail.com</p>
         </div>
@@ -44,6 +72,6 @@
     </main>
   </div>
   <script src="script.js"></script>
-  <script src="location.js"
+  <script src="location.js"></script> <!-- Closed tag fixed here -->
 </body>
 </html>

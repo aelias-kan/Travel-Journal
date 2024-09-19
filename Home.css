@@ -52,16 +52,23 @@ main {
 
 .sidebar ul li {
   margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .sidebar ul li a {
+  display: block;
+  padding: 10px;
   color: white;
   text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .sidebar ul li a.active,
 .sidebar ul li a:hover {
-  text-decoration: underline;
+  background-color: #1BB295; /* Change to desired hover color */
+  color: #fff; /* Ensure text color is visible on hover */
 }
 
 .sidebar label {
@@ -92,6 +99,10 @@ main {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   padding: 20px;
   overflow: hidden; /* Prevent scrollbars in dashboard */
+}
+.copyright p
+{
+  font-size: 14px;
 }
 
 .ai-chat {
@@ -141,4 +152,127 @@ main {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+
+
+.adhan-timings {
+  background-color: #333; /* Match sidebar color */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.adhan-timing {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: white; /* Text color */
+}
+
+
+.adhan-timing input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: right;
+}
+.adhan-timings {
+  background-color: #333; /* Match sidebar color */
+  padding: 10px;
+  margin-top: 5px; /* Remove the gap */
+  border-radius: 5px;
+}
+
+
+
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .copyright p 
+  {
+    font-size: 13px;
+    padding-bottom: 5px;
+  } 
+  .content {
+    padding: 15px;
+  }
+
+  .ai-chat {
+    height: 250px;
+  }
+
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1
+  {
+    font-size: 22px;
+  }
+  .sidebar {
+    font-size: 14px;
+    width: 150px;
+    padding: 10px;
+  }
+  .copyright p 
+  {
+    font-size: 10px;
+  } 
+
+  .content {
+    padding: 10px;
+  }
+
+  .ai-chat {
+    height: 180px;
+  }
+
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1
+  {
+    font-size: 18px;
+  }
+  .sidebar {
+    font-size: 12px;
+    width: 100px;
+    padding: 10px;
+  }
+  .adhan-timings {
+    background-color: #333; /* Match sidebar color */
+    padding-left: 1px;
+    padding-top: 10px;
+    /* margin-top: 0px; Remove the gap */
+    border-radius: 2px;
+  }
+  .copyright p
+{
+font-size: 7px;
+}
+  .content {
+    padding: 10px;
+  }
+
+  .ai-chat {
+    height: 180px;
+  }
+
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
 }
