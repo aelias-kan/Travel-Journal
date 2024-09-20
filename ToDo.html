@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="description" content="AI-driven schedules and reminders">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>To-Do Page</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="Home.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>AI-driven schedules and reminders</h1>
+      <h1>To-Do List</h1>
     </header>
     <main>
       <aside class="sidebar">
@@ -51,27 +51,45 @@
         </ul>
 
         <!-- Adhan Timings Box -->
-        
+
         <div class="copyright">
           <p>&copy; Muhammad Ilyas | milyasstudent@gmail.com</p>
         </div>
       </aside>
+
       <section class="content">
-        <div class="dashboard">
-          <h2>Dashboard</h2>
-          <!-- Dashboard content goes here -->
+        <!-- Task Creation Section -->
+        <div class="todo-task-creation">
+          <h2>Create Task</h2>
+          <form id="todo-taskForm" class="todo-form" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <div class="todo-form-group" style="flex: 1;">
+              <label for="todo-taskTitle" class="todo-label" style="margin-right: 10px;">Title:</label>
+              <input type="text" id="todo-taskTitle" name="title" placeholder="Enter task title" required class="todo-input" style="flex: 1;">
+            </div>
+            <div class="todo-form-group" style="flex: 1;">
+              <label for="todo-taskDate" class="todo-label" style="margin-right: 10px;">Date:</label>
+              <input type="date" id="todo-taskDate" name="date" required class="todo-input" style="flex: 1;">
+            </div>
+            <div class="todo-form-group" style="flex: 1;">
+              <label for="todo-taskTime" class="todo-label" style="margin-right: 10px;">Time:</label>
+              <input type="time" id="todo-taskTime" name="time" required class="todo-input" style="flex: 1;">
+            </div>
+            <div class="todo-form-group" style="flex: 1;">
+              <button type="submit" class="todo-submit-btn" style="padding: 8px 16px;">Create Task</button>
+            </div>
+          </form>
         </div>
-        <div class="ai-chat">
-          <h2>AI Chat</h2>
-          <div class="chat-window">
-            <!-- Chat messages will appear here -->
-          </div>
-          <input type="text" class="chat-input" placeholder="Type your message...">
+        
+        <!-- Task List Section -->
+        <div class="task-list">
+          <h2>Your Tasks</h2>
+          <ul id="taskList"></ul>
         </div>
       </section>
     </main>
   </div>
-  <script src="script.js"></script>
-  <script src="location.js"></script> <!-- Closed tag fixed here -->
+
+  <script src="todo.js"></script>
+  <script src="location.js"></script>
 </body>
 </html>

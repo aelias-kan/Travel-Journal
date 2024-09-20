@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="description" content="AI-driven schedules and reminders">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Schedules Page</title>
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="Home.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>AI-driven schedules and reminders</h1>
+      <h1>Schedules</h1>
     </header>
     <main>
       <aside class="sidebar">
         <ul>
           <li><a href="HomePage.html">AI</a></li>
-          <li><a href="ToDo.html">To-Do List</a></li>
+          <li><a href="ToDo.html">To-Do</a></li>
           <li><a href="Reminders.html">Reminders</a></li>
           <li>
             <label>
@@ -46,32 +46,56 @@
                 <input type="text" id="isha-time" readonly>
               </div>
             </div>
-    
           </li>
         </ul>
 
         <!-- Adhan Timings Box -->
-        
+
         <div class="copyright">
           <p>&copy; Muhammad Ilyas | milyasstudent@gmail.com</p>
         </div>
       </aside>
+
       <section class="content">
-        <div class="dashboard">
-          <h2>Dashboard</h2>
-          <!-- Dashboard content goes here -->
-        </div>
-        <div class="ai-chat">
-          <h2>AI Chat</h2>
-          <div class="chat-window">
-            <!-- Chat messages will appear here -->
+        <!-- Schedule Creation Section -->
+        <section class="schedule-content">
+          <div class="schedule-creation">
+            <h2>Create a Schedule</h2>
+            <form id="scheduleForm" class="schedule-form">
+              <div class="schedule-form-group">
+                <label for="scheduleTitle" class="schedule-label">Title:</label>
+                <input type="text" id="scheduleTitle" class="schedule-input" required>
+              </div>
+              <div class="schedule-form-group">
+                <label for="scheduleDate" class="schedule-label">Date:</label>
+                <input type="date" id="scheduleDate" class="schedule-input" required>
+              </div>
+              <div class="schedule-form-group">
+                <label for="scheduleTime" class="schedule-label">Time:</label>
+                <input type="time" id="scheduleTime" class="schedule-input" required>
+              </div>
+              <div class="schedule-form-group">
+                <label for="scheduleNotes" class="schedule-label">Notes:</label>
+                <textarea id="scheduleNotes" class="schedule-input" rows="3"></textarea>
+              </div>
+              <!-- New Notify Me Section -->
+              <div class="schedule-form-group">
+                <label for="notifyMe" class="schedule-label">Notify Me:</label>
+                <input type="checkbox" id="notifyMe" name="notifyMe">
+              </div>
+              <button type="submit" class="schedule-submit-btn">Create Schedule</button>
+            </form>
           </div>
-          <input type="text" class="chat-input" placeholder="Type your message...">
-        </div>
+          <div class="schedule-list">
+            <h2>Your Schedules</h2>
+            <ul id="scheduleList"></ul>
+          </div>
+        </section>
       </section>
     </main>
   </div>
-  <script src="script.js"></script>
-  <script src="location.js"></script> <!-- Closed tag fixed here -->
+
+  <script src="schedule.js"></script>
+  <script src="location.js"></script>
 </body>
 </html>
