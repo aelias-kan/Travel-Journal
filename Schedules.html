@@ -5,60 +5,11 @@
   <meta name="description" content="AI-driven schedules and reminders">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weekly Schedules</title>
-  <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* Temporary CSS for layout and schedule display */
-    .content-box {
-      border: 1px solid #ccc;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-    }
 
-    .schedule-form-box {
-      background-color: #f9f9f9;
-    }
+</style>
 
-    .weekly-schedule-box {
-      background-color: #fff;
-    }
-
-    /* Styles for inline form */
-    .schedule-form {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* New styles for displaying schedules inline */
-    .days-schedule {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .day {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-    }
-
-    .day button {
-      padding: 8px 12px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-    }
-
-    .day-schedules {
-      font-size: 16px;
-      color: #333;
-      margin-left: 10px; /* Space between button and schedules */
-    }
   </style>
 </head>
 <body>
@@ -71,6 +22,7 @@
         <ul>
           <li><a href="HomePage.html">AI</a></li>
           <li><a href="ToDo.html">To-Do</a></li>
+          <li><a style="background-color: #1BB295;" href="Schedules.html">Schedules</a></li>
           <li><a href="Reminders.html">Reminders</a></li>
           <li>
             <label>
@@ -82,8 +34,25 @@
                 <label for="fajr-time">Fajr:</label>
                 <input type="text" id="fajr-time" readonly>
               </div>
-              <!-- Other adhan timings remain the same -->
+              <div class="adhan-timing">
+                <label for="dhuhr-time">Dhuhr:</label>
+                <input type="text" id="dhuhr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="asr-time">Asr:</label>
+                <input type="text" id="asr-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="maghrib-time">Maghrib:</label>
+                <input type="text" id="maghrib-time" readonly>
+              </div>
+              <div class="adhan-timing">
+                <label for="isha-time">Isha:</label>
+                <input type="text" id="isha-time" readonly>
+              </div>
             </div>
+    
+          </li>
           </li>
         </ul>
         <div class="copyright">
@@ -92,7 +61,6 @@
       </aside>
 
       <section class="content">
-        <!-- Schedules Form Box -->
         <div class="content-box schedule-form-box">
           <h2>Schedules Form</h2>
           <form id="scheduleForm" class="schedule-form">
@@ -120,40 +88,39 @@
               <label for="notify-me">Notify me:</label>
               <input type="checkbox" id="notify-me">
             </div>
-            <button type="submit">Save</button>
+            <button class="schedule-button" type="submit">Save</button>
           </form>
         </div>
 
-        <!-- Weekly Schedules Box -->
         <div class="content-box weekly-schedule-box">
           <h2>Weekly Schedules</h2>
           <div class="days-schedule">
             <div class="day">
-              <button onclick="showSchedules('Monday')">Monday</button>
+              <h3>Monday:</h3>
               <span id="monday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Tuesday')">Tuesday</button>
+              <h3>Tuesday:</h3>
               <span id="tuesday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Wednesday')">Wednesday</button>
+              <h3>Wednesday:</h3>
               <span id="wednesday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Thursday')">Thursday</button>
+              <h3>Thursday:</h3>
               <span id="thursday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Friday')">Friday</button>
+              <h3>Friday:</h3>
               <span id="friday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Saturday')">Saturday</button>
+              <h3>Saturday:</h3>
               <span id="saturday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
             <div class="day">
-              <button onclick="showSchedules('Sunday')">Sunday</button>
+              <h3>Sunday:</h3>
               <span id="sunday-schedules" class="day-schedules">No schedules yet.</span>
             </div>
           </div>
@@ -162,6 +129,28 @@
     </main>
   </div>
 
-  <script src="schedule.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const days = document.querySelectorAll('.day');
+  
+      days.forEach(day => {
+        day.addEventListener('click', function () {
+          // First, collapse all days
+          days.forEach(d => {
+            d.classList.remove('expanded');
+            d.classList.add('collapsed');
+          });
+  
+          // Then, expand the clicked day
+          day.classList.remove('collapsed');
+          day.classList.add('expanded');
+        });
+      });
+    });
+  </script>
+    <script src="script.js"></script>
+    <script src="location.js"></script> <!-- Closed tag fixed here -->
+    <script src="reminder.js"></script>
+  
 </body>
 </html>

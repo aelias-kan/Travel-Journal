@@ -136,7 +136,396 @@ main {
   padding: 10px;
   width: 100%;
 }
-/* Existing styles... */
+
+.adhan-reminder {
+  margin-top: 20px;
+}
+
+.adhan-reminder input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#adhan-times {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.adhan-timings {
+  background-color: #333; /* Match sidebar color */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.adhan-timing {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: white; /* Text color */
+}
+
+.adhan-timing input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: right;
+}
+
+
+/* Styles for To-Do page */
+.todo-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todo-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.todo-label {
+  font-size: 16px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 4px;
+}
+
+.todo-submit-btn {
+  color: white;
+  background-color: #1BB295;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #1BB295;
+}
+
+.todo-submit-btn:hover {
+  background-color: white;
+  color: black;
+  border-color: #1BB295;
+
+}
+.task-list
+{
+  margin: 10px 0px;
+}
+
+/*schedules*/
+.schedule-form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.schedule-label {
+  flex: 0 0 120px;
+  font-weight: bold;
+}
+
+.schedule-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.schedule-submit-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.schedule-submit-btn:hover {
+  background-color: #45a049;
+}
+
+.schedule-form-group label input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+
+
+.content-box {
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.schedule-form-box {
+  background-color: #f9f9f9;
+}
+
+.weekly-schedule-box {
+  background-color: #fff;
+}
+
+.schedule-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.days-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.day h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.day-schedules {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Expanded/collapsed styles */
+.day.expanded {
+  font-size: 24px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.day.collapsed {
+  font-size: 14px;
+  padding: 10px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+Additional CSS for expanding and collapsing days
+.day {
+transition: all 0.3s ease-in-out;
+cursor: pointer;
+}
+
+.expanded {
+background-color: #e0f7fa;
+padding: 20px;
+font-size: 20px;
+}
+
+.collapsed {
+background-color: #f1f1f1;
+padding: 10px;
+font-size: 14px;
+}
+
+/* Other CSS remains the same */
+
+.schedule-button{
+background-color: #1BB295; /* Green background */
+color: white; /* White text */
+border: none; /* No border */
+padding: 4px 13px; /* Padding around the button */
+text-align: center; /* Center the text */
+font-size: 16px; /* Font size */
+cursor: pointer; /* Pointer cursor on hover */
+transition: background-color 0.3s ease; /* Smooth background-color transition */
+border-radius: 5px; /* Rounded corners */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a slight shadow */
+}
+
+.schedule-button:hover {
+background-color: white;
+color: black;
+border: 1px solid #4CAF50;
+box-shadow: #ccc;
+}
+
+
+
+/*reminder.css*/
+
+
+/* styles.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #1BB295;
+  color: white;
+  flex-shrink: 0; /* Prevents shrinking of the header */
+}
+
+main {
+  display: flex;
+  flex: 1; /* Allow main to take up available space */
+  overflow: hidden; /* Hide scrollbars for main */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0; /* Prevents shrinking of the sidebar */
+  height: calc(100vh - 60px); /* Adjust if header height changes */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  background-color: #1BB295; /* Change to desired hover color */
+  color: #fff; /* Ensure text color is visible on hover */
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #f9f9f9; /* Background color for content area */
+  height: calc(100vh - 60px); /* Adjust if header height changes */
+  overflow: hidden; /* Prevent scrollbars in content area */
+}
+
+.reminders-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.reminder-form {
+  margin-bottom: 20px;
+}
+
+.reminder-form form {
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.reminder-form label {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.reminder-form input[type="text"], 
+.reminder-form input[type="date"], 
+.reminder-form input[type="time"] {
+  display: inline-block;
+  margin-top: 5px;
+  /* padding: 8px; */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+button
+{
+  color: white;
+  background-color: #1BB295;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 5px 15px;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #1BB295;
+}
+input
+{
+  /* padding: 5px; */
+}
+button:hover
+{
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+}
+.reminder-alarm,
+.reminder-notification {
+  /* display: inline-block; */
+  align-items: center;
+  margin-top: 5px;
+}
+
+.reminder-alarm label,
+.reminder-notification label {
+  margin-right: 15px;
+}
+
+/* .reminder-alarm input[type="file"],
+.reminder-notification input[type="file"] {
+  margin-left: 10px;
+} */
+
+/* .reminders-list { */
+  /* margin-top: 20px; */
+/* } */
+
+.copyright {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+}
+
 
 .adhan-reminder {
   margin-top: 20px;
@@ -184,85 +573,97 @@ main {
   border-radius: 5px;
 }
 
-/* Styles for To-Do page */
-.todo-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+
+
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .copyright p 
+  {
+    font-size: 13px;
+    padding-bottom: 5px;
+  } 
+  .content {
+    padding: 15px;
+  }
+
+  .ai-chat {
+    height: 250px;
+  }
+
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
 }
 
-.todo-form-group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex: 1;
+@media (max-width: 768px) {
+  header h1
+  {
+    font-size: 22px;
+  }
+  .sidebar {
+    font-size: 14px;
+    width: 150px;
+    padding: 10px;
+  }
+  .copyright p 
+  {
+    font-size: 10px;
+  } 
+
+  .content {
+    padding: 10px;
+  }
+
+  .ai-chat {
+    height: 180px;
+  }
+
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
 }
 
-.todo-label {
-  font-size: 16px;
-}
-
-.todo-input {
-  flex: 1;
-  padding: 4px;
-}
-
-.todo-submit-btn {
-  color: white;
-  background-color: #1BB295;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 5px 15px;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 1px solid #1BB295;
-}
-
-.todo-submit-btn:hover {
-  background-color: white;
-  color: black;
-  border-color: #1BB295;
-
-}
-.task-list
+@media (max-width: 480px) {
+  header h1
+  {
+    font-size: 18px;
+  }
+  .sidebar {
+    font-size: 12px;
+    width: 100px;
+    padding: 10px;
+  }
+  .adhan-timings {
+    background-color: #333; /* Match sidebar color */
+    padding-left: 1px;
+    padding-top: 10px;
+    /* margin-top: 0px; Remove the gap */
+    border-radius: 2px;
+  }
+  .copyright p
 {
-  margin: 10px 0px;
+font-size: 7px;
 }
+  .content {
+    padding: 10px;
+  }
 
+  .ai-chat {
+    height: 180px;
+  }
 
-.schedule-form-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.schedule-label {
-  flex: 0 0 120px;
-  font-weight: bold;
-}
-
-.schedule-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.schedule-submit-btn {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.schedule-submit-btn:hover {
-  background-color: #45a049;
-}
-
-.schedule-form-group label input[type="checkbox"] {
-  margin-right: 10px;
+  .dashboard,
+  .ai-chat {
+    margin-bottom: 10px;
+  }
 }
 
 
