@@ -4,14 +4,67 @@
   <meta charset="UTF-8">
   <meta name="description" content="AI-driven schedules and reminders">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedules Page</title>
-  <link rel="icon" href="favicon.ico">
+  <title>Weekly Schedules</title>
   <link rel="stylesheet" href="Home.css">
+  <style>
+    /* Temporary CSS for layout and schedule display */
+    .content-box {
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .schedule-form-box {
+      background-color: #f9f9f9;
+    }
+
+    .weekly-schedule-box {
+      background-color: #fff;
+    }
+
+    /* Styles for inline form */
+    .schedule-form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* New styles for displaying schedules inline */
+    .days-schedule {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .day {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .day button {
+      padding: 8px 12px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .day-schedules {
+      font-size: 16px;
+      color: #333;
+      margin-left: 10px; /* Space between button and schedules */
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Schedules</h1>
+      <h1>Weekly Schedules</h1>
     </header>
     <main>
       <aside class="sidebar">
@@ -29,73 +82,86 @@
                 <label for="fajr-time">Fajr:</label>
                 <input type="text" id="fajr-time" readonly>
               </div>
-              <div class="adhan-timing">
-                <label for="dhuhr-time">Dhuhr:</label>
-                <input type="text" id="dhuhr-time" readonly>
-              </div>
-              <div class="adhan-timing">
-                <label for="asr-time">Asr:</label>
-                <input type="text" id="asr-time" readonly>
-              </div>
-              <div class="adhan-timing">
-                <label for="maghrib-time">Maghrib:</label>
-                <input type="text" id="maghrib-time" readonly>
-              </div>
-              <div class="adhan-timing">
-                <label for="isha-time">Isha:</label>
-                <input type="text" id="isha-time" readonly>
-              </div>
+              <!-- Other adhan timings remain the same -->
             </div>
           </li>
         </ul>
-
-        <!-- Adhan Timings Box -->
-
         <div class="copyright">
           <p>&copy; Muhammad Ilyas | milyasstudent@gmail.com</p>
         </div>
       </aside>
 
       <section class="content">
-        <!-- Schedule Creation Section -->
-        <section class="schedule-content">
-          <div class="schedule-creation">
-            <h2>Create a Schedule</h2>
-            <form id="scheduleForm" class="schedule-form">
-              <div class="schedule-form-group">
-                <label for="scheduleTitle" class="schedule-label">Title:</label>
-                <input type="text" id="scheduleTitle" class="schedule-input" required>
-              </div>
-              <div class="schedule-form-group">
-                <label for="scheduleDate" class="schedule-label">Date:</label>
-                <input type="date" id="scheduleDate" class="schedule-input" required>
-              </div>
-              <div class="schedule-form-group">
-                <label for="scheduleTime" class="schedule-label">Time:</label>
-                <input type="time" id="scheduleTime" class="schedule-input" required>
-              </div>
-              <div class="schedule-form-group">
-                <label for="scheduleNotes" class="schedule-label">Notes:</label>
-                <textarea id="scheduleNotes" class="schedule-input" rows="3"></textarea>
-              </div>
-              <!-- New Notify Me Section -->
-              <div class="schedule-form-group">
-                <label for="notifyMe" class="schedule-label">Notify Me:</label>
-                <input type="checkbox" id="notifyMe" name="notifyMe">
-              </div>
-              <button type="submit" class="schedule-submit-btn">Create Schedule</button>
-            </form>
+        <!-- Schedules Form Box -->
+        <div class="content-box schedule-form-box">
+          <h2>Schedules Form</h2>
+          <form id="scheduleForm" class="schedule-form">
+            <div class="schedule-form-group">
+              <label for="scheduleTitle">Name:</label>
+              <input type="text" id="scheduleTitle" required>
+            </div>
+            <div class="schedule-form-group">
+              <label for="scheduleDay">Day:</label>
+              <select id="scheduleDay" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+            <div class="schedule-form-group">
+              <label for="scheduleTime">Time:</label>
+              <input type="time" id="scheduleTime" required>
+            </div>
+            <div class="schedule-form-group">
+              <label for="notify-me">Notify me:</label>
+              <input type="checkbox" id="notify-me">
+            </div>
+            <button type="submit">Save</button>
+          </form>
+        </div>
+
+        <!-- Weekly Schedules Box -->
+        <div class="content-box weekly-schedule-box">
+          <h2>Weekly Schedules</h2>
+          <div class="days-schedule">
+            <div class="day">
+              <button onclick="showSchedules('Monday')">Monday</button>
+              <span id="monday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Tuesday')">Tuesday</button>
+              <span id="tuesday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Wednesday')">Wednesday</button>
+              <span id="wednesday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Thursday')">Thursday</button>
+              <span id="thursday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Friday')">Friday</button>
+              <span id="friday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Saturday')">Saturday</button>
+              <span id="saturday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
+            <div class="day">
+              <button onclick="showSchedules('Sunday')">Sunday</button>
+              <span id="sunday-schedules" class="day-schedules">No schedules yet.</span>
+            </div>
           </div>
-          <div class="schedule-list">
-            <h2>Your Schedules</h2>
-            <ul id="scheduleList"></ul>
-          </div>
-        </section>
+        </div>
       </section>
     </main>
   </div>
 
   <script src="schedule.js"></script>
-  <script src="location.js"></script>
 </body>
 </html>
