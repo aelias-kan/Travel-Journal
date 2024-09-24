@@ -221,6 +221,7 @@ main {
 }
 
 /*schedules*/
+
 .schedule-form-group {
   display: flex;
   align-items: center;
@@ -255,7 +256,6 @@ main {
 .schedule-form-group label input[type="checkbox"] {
   margin-right: 10px;
 }
-
 
 
 .content-box {
