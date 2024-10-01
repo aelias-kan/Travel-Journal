@@ -450,19 +450,27 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 20px;
+  /* background: white; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 10px;
 }
 
 .reminder-form {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  background-color: #f4f4f9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  /* max-width: 800px; */
+  /* align-self: center; */
+  /* margin: auto; */
 }
 
 .reminder-form form {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
+  gap: 20px;  /*  Add spacing between form rows */
 }
 
 .reminder-form label {
@@ -472,38 +480,37 @@ main {
 
 .reminder-form input[type="text"], 
 .reminder-form input[type="date"], 
-.reminder-form input[type="time"] {
+.reminder-form input[type="time"], 
+.reminder-form select {
   display: inline-block;
   margin-top: 5px;
-  /* padding: 8px; */
+  padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width: 100%;
 }
-button
-{
-  color: white;
-  background-color: #1BB295;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 5px 15px;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 1px solid #1BB295;
+
+/* First row with 5 fields */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
-input
-{
-  /* padding: 5px; */
+
+.form-group {
+  flex: 1;
 }
-button:hover
-{
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #333;
+
+.form-group:last-child {
+  margin-right: 0;
 }
+
 .reminder-alarm,
 .reminder-notification {
-  /* display: inline-block; */
+  display: flex;
   align-items: center;
   margin-top: 5px;
+  justify-content: space-between; /* Ensures the checkbox, file input, and labels are spaced nicely */
 }
 
 .reminder-alarm label,
@@ -511,10 +518,84 @@ button:hover
   margin-right: 15px;
 }
 
-/* .reminder-alarm input[type="file"],
+button {
+  color: white;
+  /* margin-top: 5px; */
+  background-color: #1BB295;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid #1BB295;
+  /* display: block; */
+  margin-top: 5px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+}
+
+/* Styling for checkboxes and file inputs to look inline */
+.form-group input[type="checkbox"] {
+  width: auto;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+h3 {
+  color: #1BB295;
+  text-align: center;
+}
+
+.submit-row {
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+/* 
+body {
+  background-color: #e6f7f5;
+} */
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+} */
+
+/* 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+ */
+ .reminders-list
+ {
+  background-color: #ccc;
+  /* width: 99%; */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* align-self: center; */
+  height: 800px;
+  overflow: scroll;
+ }
+/* 
+ .reminder-alarm input[type="file"],
 .reminder-notification input[type="file"] {
   margin-left: 10px;
-} */
+}  */
 
 /* .reminders-list { */
   /* margin-top: 20px; */
@@ -576,6 +657,62 @@ button:hover
 
 
 /* Responsive Styles */
+
+
+
+/*Schedules*/
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.day {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+  min-width: 120px;
+}
+
+.day:hover {
+  background-color: #bbb;
+}
+
+.task-details {
+  display: none; /* Initially hidden */
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+#taskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#taskList {
+  margin-top: 10px;
+}
+
+#taskList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#taskList li {
+  background-color: #e4e4e4;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+
 
 @media (max-width: 1024px) {
   .sidebar {
@@ -724,58 +861,6 @@ font-size: 7px;
 
 }
 
-
-/*Schedules*/
-.week {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.day {
-  flex: 1;
-  padding: 15px;
-  text-align: center;
-  background-color: #ddd;
-  cursor: pointer;
-  border-radius: 5px;
-  min-width: 120px;
-}
-
-.day:hover {
-  background-color: #bbb;
-}
-
-.task-details {
-  display: none; /* Initially hidden */
-  margin-top: 20px;
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-#taskForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-#taskList {
-  margin-top: 10px;
-}
-
-#taskList ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#taskList li {
-  background-color: #e4e4e4;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-}
 
 @media (max-width: 480px) {
   header h1

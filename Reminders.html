@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reminders Page</title>
-  <!-- <link rel="stylesheet" href="reminder.css"> -->
   <link rel="stylesheet" href="Home.css">
 </head>
 <body>
@@ -59,43 +58,64 @@
           <!-- Reminder management content goes here -->
           <div class="reminder-form">
             <h3>Create New Reminders</h3>
-            <form id="reminderForm" style="display: grid;">
-              <div class="form-group fullname">
-                <label for="reminderName">Reminder Name:</label>
-                <input type="text" id="reminderName" name="name" placeholder="Enter your full name" required>
-              </div>
+              <form id="reminderForm" style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="reminderName">Reminder Name:</label>
+                    <input type="text" id="reminderName" name="name" placeholder="Enter reminder name" required>
+                  </div>
             
-              <div class="form-group email">
-                <label for="reminderDate">Date:</label>
-                <input type="date" id="reminderDate" name="date" required>
-              </div>
+                  <div class="form-group">
+                    <label for="reminderDate">Date:</label>
+                    <input type="date" id="reminderDate" name="date" required>
+                  </div>
             
-              <div class="form-group email">
-                <label for="reminderTime">Time:</label>
-                <input type="time" id="reminderTime" name="time" required>
-              </div>
+                  <div class="form-group">
+                    <label for="reminderTime">Time:</label>
+                    <input type="time" id="reminderTime" name="time" required>
+                  </div>
+                </div>
             
-              <div class="reminder-alarm form-group password">
-                <label for="reminderAlarm">
-                  <input type="checkbox" id="reminderAlarm" name="alarm">
-                  Turn Alarm on
-                </label>
-                <input type="file" id="alarmMusic" name="alarmMusic" accept="audio/*">
-              </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="repeatType">Repeat Type:</label>
+                    <select id="repeatType" name="repeatType">
+                      <option value="none">None</option>
+                      <option value="days">Days</option>
+                      <option value="hours">Hours</option>
+                    </select>
+                  </div>
             
-              <div class="reminder-notification form-group password">
-                <label for="reminderNotification">
-                  <input type="checkbox" id="reminderNotification" name="notification">
-                  Turn Notification on
-                </label>
-                <input type="file" id="notificationFile" name="notificationFile" accept="audio/*">
-              </div>
+                  <div class="form-group">
+                    <label for="repeatInterval">Repeat Interval:</label>
+                    <input type="number" id="repeatInterval" name="repeatInterval" placeholder="Enter number" min="1">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="reminderAlarm">
+                      <input type="checkbox" id="reminderAlarm" name="alarm">
+                      Turn Alarm on
+                    </label>
+                    <input type="file" id="alarmMusic" name="alarmMusic" accept="audio/*">
+                  </div>
+                </div>
             
-              <div class="form-group submit-btn">
-                <button type="submit">Save Reminder</button>
-              </div>
-            </form>                    
-          </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="reminderNotification">
+                      <input type="checkbox" id="reminderNotification" name="notification">
+                      Turn Notification on
+                    </label>
+                    <input type="file" id="notificationFile" name="notificationFile" accept="audio/*">
+                  </div>
+            
+                  <div class="form-group submit-btn">
+                    <button type="submit">Save Reminder</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+                                    
           <div class="reminders-list">
             <h3>Your Reminders</h3>
             <ul id="reminderList"></ul>
