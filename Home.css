@@ -559,29 +559,7 @@ h3 {
   margin-top: 20px;
   text-align: center;
 }
-/* 
-body {
-  background-color: #e6f7f5;
-} */
-
-/* .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-} */
-
-/* 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
- */
- .reminders-list
+.reminders-list
  {
   background-color: #ccc;
   /* width: 99%; */
